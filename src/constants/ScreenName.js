@@ -1,7 +1,9 @@
 export default {
   home: 'HomeScreen',
+  search: 'SearchScreen',
   liked: 'LikedSongScreen',
   login: 'LoginScreen',
-  profile: 'ProfileScreen',
+  premium: 'PremiumScreen',
   songInfo: 'SongInfoScreen',
+  yourLibrary: 'YourLibraryScreen',
 };

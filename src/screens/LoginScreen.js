@@ -5,7 +5,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
+import ScreenName from '../constants/ScreenName';
 const LoginScreen = () => {
+  const navigation = useNavigation();
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
       <SafeAreaView>
@@ -46,7 +49,7 @@ const LoginScreen = () => {
             </Text>
           </View>
         </Pressable>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate('Main')}>
           <View style={styles.loginText}>
             <Text style={{color: 'white', fontSize: 18, fontWeight: '500'}}>
               Log in
