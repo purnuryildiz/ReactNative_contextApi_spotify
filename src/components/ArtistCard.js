@@ -2,7 +2,6 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
 const ArtistCard = ({artist}) => {
-  console.log(artist);
   return (
     <TouchableOpacity
       style={{

@@ -7,12 +7,21 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Genres} from '../context/GenresContext';
+import GenreCard from '../components/GenreCard';
+import AnimatedImage from '../components/AnimatedGif';
 
 const SearchScreen = () => {
+  const {
+    genres,
+    loading: genresLoading,
+    error: genresError,
+  } = useContext(Genres);
+
   const [searchText, setSearchText] = useState('');
 
   // Metin değiştiğinde arama metnini güncelle
@@ -27,7 +36,9 @@ const SearchScreen = () => {
 
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
-      <ScrollView style={{flex: 1, marginTop: 60, marginLeft: 1}}>
+      <ScrollView
+        style={{flex: 1, marginTop: 60, marginLeft: 1}}
+        contentContainerStyle={{paddingBottom: 100}}>
         {/* Header */}
         <View
           style={{
@@ -94,12 +105,43 @@ const SearchScreen = () => {
             </TouchableOpacity>
           )}
         </View>
+
+        {/* Explore your genres */}
+        <View style={{marginVertical: 20}}>
+          <View style={{marginBottom: 15}}>
+            <Text style={styles.header}>Explore Your Genres </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              gap: 5,
+              marginHorizontal: 10,
+            }}>
+            <AnimatedImage />
+          </View>
+        </View>
+
+        {/* Browse All */}
+        <ScrollView>
+          <Text style={styles.header}>Browse All</Text>
+          <View style={styles.container}>
+            {genres?.map((genre, index) => (
+              <GenreCard genre={genre} key={genre.id} index={index} />
+            ))}
+          </View>
+        </ScrollView>
       </ScrollView>
     </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap', // Ensures the cards wrap to the next line
+    justifyContent: 'space-between', // Spacing between cards
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -119,6 +161,12 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     marginLeft: 10,
+  },
+  header: {
+    color: 'white',
+    margin: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

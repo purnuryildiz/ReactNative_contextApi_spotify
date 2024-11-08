@@ -23,7 +23,7 @@ const AlbumsProvider = ({children}) => {
         numberOfTopResults: '18',
       },
       headers: {
-        'x-rapidapi-key': '16542e0184mshf352632a2e2fe8ap16d83ajsn2c7bc139301e',
+        'x-rapidapi-key': 'fd890a0df9msh1234ff5f952b7cdp1fd6eajsn040ea3fe8967',
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };

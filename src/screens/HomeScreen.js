@@ -39,11 +39,6 @@ const HomeScreen = () => {
     error: artistsError,
   } = useContext(Artists);
 
-  //! Drawer'ı açan fonksiyon
-  const openDrawer = () => {
-    navigation.openDrawer();
-  };
-
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
       {albumsLoading ? (
@@ -71,7 +66,7 @@ const HomeScreen = () => {
                   padding: 10,
                 }}>
                 {/* Profile */}
-                <TouchableOpacity onPress={openDrawer}>
+                <TouchableOpacity>
                   <Image
                     source={{
                       uri: 'https://www.shutterstock.com/image-photo/enthusiastic-white-girl-long-shiny-260nw-1222083556.jpg',

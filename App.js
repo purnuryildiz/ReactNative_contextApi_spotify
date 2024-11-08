@@ -4,14 +4,17 @@ import Navigation from './src/navigation/Routes';
 
 import {AlbumsProvider} from './src/context/AlbumsContext';
 import {ArtistsProvider} from './src/context/ArtistsContext';
+import {GenresProvider} from './src/context/GenresContext';
 const App = () => {
   return (
     <>
-      <ArtistsProvider>
-        <AlbumsProvider>
-          <Navigation />
-        </AlbumsProvider>
-      </ArtistsProvider>
+      <GenresProvider>
+        <ArtistsProvider>
+          <AlbumsProvider>
+            <Navigation />
+          </AlbumsProvider>
+        </ArtistsProvider>
+      </GenresProvider>
     </>
   );
 };

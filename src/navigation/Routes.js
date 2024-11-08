@@ -98,17 +98,6 @@ export const BottomTabs = () => {
   );
 };
 
-// Drawer Navigator
-const Drawer = createDrawerNavigator();
-
-const DrawerNavigator = () => {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Account" component={AccountScreen} />
-    </Drawer.Navigator>
-  );
-};
-
 // STACK NAVIGATION
 const Stack = createNativeStackNavigator();
 
@@ -119,8 +108,7 @@ const Routes = () => {
         <Stack.Screen name={ScreenName.login} component={LoginScreen} />
         {/* Bottom tabslar entegre edildi */}
         <Stack.Screen name="Main" component={BottomTabs} />
-        {/* Drawer Navigator'ı Stack'e eklendi*/}
-        <Stack.Screen name="Secondary" component={DrawerNavigator} />
+
         <Stack.Screen name={ScreenName.liked} component={LikedSongScreen} />
         <Stack.Screen name={ScreenName.songInfo} component={SongInfoScreen} />
       </Stack.Navigator>
